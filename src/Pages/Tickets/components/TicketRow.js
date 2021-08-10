@@ -10,9 +10,18 @@ const TicketRow = ({
     <tr>
       <td>{descripcion}</td>
       <td className="text-center">
-        <button className="btn btn-primary"> - </button>
+        <button
+          className="btn btn-primary"
+          onClick={() => substractTicketQuantity(id)}
+        >
+          {' '}
+          -{' '}
+        </button>
         <span> {cantidad} </span>
-        <button className="btn btn-primary" onClick={() => addTicketQuantity(id)}>
+        <button
+          className="btn btn-primary"
+          onClick={() => addTicketQuantity(id)}
+        >
           {' '}
           +{' '}
         </button>

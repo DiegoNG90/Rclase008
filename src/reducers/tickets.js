@@ -28,6 +28,21 @@ export const ticketReducer = (state = initialState, action) => {
             total: getTotal(tickets)
         }
     }
+    case SUBSTRACT_QUANTITY: {
+        const tickets = state.tickets.map((ticket) => {
+            if(ticket.id === action.payload.id){
+                if(ticket.cantidad > 0){
+                    return {...ticket, cantidad: ticket.cantidad -1}
+                }
+            }
+            return ticket
+
+        })
+        return {
+            tickets,
+            total: getTotal(tickets)
+        }
+    }
     default:
       return initialState;
   }
