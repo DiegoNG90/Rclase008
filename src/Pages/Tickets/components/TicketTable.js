@@ -41,7 +41,7 @@ const TicketTable = ({tickets}) => {
             ))}
         </tbody>
       </Table>
-      {'$'} {state.total}
+      {`$${state.total}`}
     </>
   );
 };
