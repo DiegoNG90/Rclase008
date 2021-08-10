@@ -1,11 +1,13 @@
 import { Table } from 'react-bootstrap';
 import TicketRow from '../components/TicketRow'
-import { useReducer, useEffect } from 'react';
+import { useReducer, useEffect, useContext } from 'react';
 import {initialState, ticketReducer} from '../../../reducers/tickets'
 import { SET_TICKETS, ADD_QUANTITY, SUBSTRACT_QUANTITY } from '../../../actions/tickets';
+import { UserContext } from '../../../context/user';
 
 const TicketTable = ({tickets}) => {
   const [state, dispatch] = useReducer(ticketReducer, initialState);
+  const {name} = useContext(UserContext);
 
   useEffect(() => {
     dispatch({ type: SET_TICKETS, payload: { tickets } });
